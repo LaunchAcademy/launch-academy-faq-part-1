@@ -4,7 +4,12 @@ import ReactDOM from "react-dom"
 import App from "./components/App"
 import data from "./constants/data"
 
+const specialEasterEggFAQ = 4
+
 ReactDOM.render(
-  <App data={data}/>,
+  <App 
+    faqArray={data} 
+    specialEasterEggFAQ={specialEasterEggFAQ}
+  />,
   document.getElementById("app")
 )
