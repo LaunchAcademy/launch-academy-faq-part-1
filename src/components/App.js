@@ -4,23 +4,17 @@ import FAQTile from './FAQTile';
 
 const App = (props) => {
 
-  const [selectedFaqIds, setSelectedFAQIds] = useState([])
-
-  let secretMessage
-  if (selectedFaqIds.includes(props.specialEasterEggFAQ)) {
-    secretMessage = "THE LANGUAGE DOESNT MATTER, THE CONCEPTS DO!"
-  }
+  const [selectedFaqId, setSelectedFAQId] = useState(null)
 
   const FAQTileComponents = props.faqArray.map((faqObject) => {
     return (
       <FAQTile 
         key={faqObject.id}
         id={faqObject.id}
-        selectedFaqIds={selectedFaqIds}
-        setSelectedFAQIds={setSelectedFAQIds}
+        selectedFaqId={selectedFaqId}
+        setSelectedFAQId={setSelectedFAQId}
         question={faqObject.question}
         answer={faqObject.answer}
-        specialEasterEggFAQ={props.specialEasterEggFAQ}
       />
     )
   })
@@ -31,9 +25,6 @@ const App = (props) => {
 
       {FAQTileComponents}
 
-      <br/>
-
-      {secretMessage}
     </div>
   )
 }
